@@ -12,9 +12,9 @@ def calculateEigens(size = 1000, device="CPU"):
 
   preMatrix = time.time() 
   matrix = func.random.random([size, size])
-  matrix = 0.5*(matrix + matrix.T) 
+  matrix = 0.5 * (matrix + matrix.T) 
   postMatrix = time.time()
-  print(f"Matrix created in {(time.time()-preMatrix):.3f} s\n")
+  print(f"Matrix created in {(time.time() - preMatrix):.3f} s\n")
 
   preEig = time.time()
   # Calculate eigenvalues and eigenvectors
@@ -23,7 +23,7 @@ def calculateEigens(size = 1000, device="CPU"):
 
   preDiagonal = time.time()
   # Diagonalise the original matrix
-  diagonalisedMatrix = np.linalg.inv(eigVectors) @ matrix @ eigVectors
+  diagonalisedMatrix = func.linalg.inv(eigVectors) @ matrix @ eigVectors
   print(f"Matrix diagonalized in {(time.time()-preDiagonal):.3f} s\n")
 
 if __name__=="__main__":
